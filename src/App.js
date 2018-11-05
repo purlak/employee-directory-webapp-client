@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Company Directory</h1>
+        <h1>Company Name and Logo - Placeholder</h1>
 
         <div className="navbar">
           <p>NavBar</p>
