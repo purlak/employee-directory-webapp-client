@@ -7,6 +7,18 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Company Directory</h1>
+
+        <div>
+          <p>NavBar</p>
+        </div>
+
+        <div className="sidebar">
+          <p>SideBar</p>
+        </div>
+
+        <div className="main-content">
+          <p>Main Content</p>
+        </div>
       </div>
     );
   }
