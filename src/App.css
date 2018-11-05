@@ -5,23 +5,26 @@
 .navbar {
   float: left;
   width: 100vw;
-  height: 10vh;
-  background: orangered;
+  height: 7vh;
+  background: royalblue;
   margin: 0;
+  color: white;
+  border-bottom: 2px solid white;
 }
 
 .sidebar {
   float: left;
-  width: 30vw;
+  width: 30%;
   height: 90vh;
-  background: lightgrey;
+  background: white;
+  color: black;
 }
 
 .main-content {
   float: left;
-  width: 69vw;
+  width: 70%;
   height: 90vh;
-  background: grey;
+  background: lightgrey;
   color:  black;
 
 }
