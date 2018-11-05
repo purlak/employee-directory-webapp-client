@@ -8,13 +8,13 @@
   height: 10vh;
   background: orangered;
   margin: 0;
-
-
 }
 
 .sidebar {
-
-
+  float: left;
+  width: 30vw;
+  height: 90vh;
+  background: lightgrey;
 }
 
 .main-content {
