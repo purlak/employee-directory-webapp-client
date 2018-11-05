@@ -14,10 +14,11 @@
 
 .sidebar {
   float: left;
-  width: 30%;
+  width: 28%;
   height: 90vh;
   background: royalblue;
   color: white;
+  border-right: 2px solid white;
 }
 
 .main-content {
