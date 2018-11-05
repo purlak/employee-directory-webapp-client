@@ -10,14 +10,17 @@ class App extends Component {
 
         <div className="navbar">
           <p>NavBar</p>
+          <Navbar />
         </div>
 
         <div className="sidebar">
           <p>SideBar</p>
+          <Employees />
         </div>
 
         <div className="main-content">
           <p>Main Content</p>
+          <Employee />
         </div>
       </div>
     );
