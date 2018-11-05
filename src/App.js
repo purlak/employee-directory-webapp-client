@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <h1>Company Directory</h1>
 
-        <div>
+        <div className="navbar">
           <p>NavBar</p>
         </div>
 
