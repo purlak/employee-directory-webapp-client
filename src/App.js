@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 let employees = [
-  { name: 'Minerva McGonagall', title: 'House Captain', id:1}
+  { firstname: 'Minerva', lastname: 'McGonagall', title: 'House Captain', id:1}
 ]
 
 class App extends Component {
