@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import Employees from './components/Employees'
+
 import logo from './logo.svg';
 import './App.css';
+
+let employees = [
+  { name: 'Minerva McGonagall', id:1}
+]
 
 class App extends Component {
   render() {
@@ -10,17 +16,20 @@ class App extends Component {
 
         <div className="navbar">
           <p>NavBar</p>
-          <Navbar />
+        
         </div>
 
         <div className="sidebar">
           <p>SideBar</p>
-          <Employees />
+          <p> Search </p>
+          <p> Add an Employee</p>
+
+          <Employees employees={employees}/>
         </div>
 
         <div className="main-content">
           <p>Main Content</p>
-          <Employee />
+          
         </div>
       </div>
     );
