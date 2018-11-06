@@ -5,6 +5,21 @@ const EmployeeService = {
     return fetch('http://localhost:3001/api/employees')
     .then(res => res.json())   
     
+  },
+
+  createEmpoyee(employee) {
+    const request = {
+      method:'POST',
+      body: JSON.stringify(employee),
+      contentType: 'application/json',
+      accepts: 'application/json',
+
+
+    };
+
+    return fetch('http://localhost:3001/api/employees', request)
+    .then(res => res.json())  
+    
   }
 }
 
