@@ -5,28 +5,25 @@ import EmployeeService from './services/EmployeeService';
 import logo from './logo.svg';
 import './App.css';
 
-let employees = [
-  { first_name: 'Minerva', last_name: 'McGonagall', title: 'House Captain', id:1}
-]
 
 class App extends Component {
 
   constructor() {
     super()
 
-    this.state= {
+    this.state = {
       employees: []
     }
   }
 
   componentDidMount() {
-    EmployeeService.fetchEmployees().then(employees => this.setState({ employees })
-
-    )
+    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
   }
 
   render() {
+    
     return (
+
       <div className="App">
         <h1>Company Name and Logo - Placeholder</h1>
 
@@ -39,8 +36,8 @@ class App extends Component {
           <p>SideBar</p>
           <p> Search </p>
           <p> Add an Employee</p>
-
           <Employees employees={this.state.employees}/>
+
         </div>
 
         <div className="main-content">

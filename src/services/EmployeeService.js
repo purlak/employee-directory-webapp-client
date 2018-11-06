@@ -1,11 +1,10 @@
 const API_URL = process.env.REACT_APP_API_URL;
-console.log(API_URL);
-
-const EmployeeService={
-
-  fetchEmployees: () => {
-    return fetch('/employees')
-    .then(response => response.json())
+const EmployeeService = {
+  fetchEmployees() {
+    
+    return fetch('http://localhost:3001/api/employees')
+    .then(res => res.json())   
+    
   }
 }
 
