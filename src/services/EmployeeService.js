@@ -7,13 +7,12 @@ const EmployeeService = {
     
   },
 
-  createEmpoyee(employee) {
+  createEmployee(employee) {
     const request = {
       method:'POST',
-      body: JSON.stringify(employee),
+      data: JSON.stringify(employee),
       contentType: 'application/json',
-      accepts: 'application/json',
-
+      accepts: 'application/json'
 
     };
 
