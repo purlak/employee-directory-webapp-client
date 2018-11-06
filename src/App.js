@@ -20,7 +20,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    EmployeeService.fetchEmployees()
+    EmployeeService.fetchEmployees().then(employees => this.setState({ employees })
+
+    )
   }
 
   render() {
