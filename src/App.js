@@ -21,9 +21,9 @@ class App extends Component {
   }
 
   addEmployee = employee => {
-    EmployeeService.createEmployee(employee).then(employee => this.setState({
-      employees: this.state.employees.concat(employee)
-    }))
+    EmployeeService.createEmployee(employee).then(employee => console.log("Created Employee: ", employee))
+
+   
   }
 
   render() {
@@ -42,14 +42,16 @@ class App extends Component {
           <p>SideBar</p>
           <p> Search </p>
           <p> Add an Employee</p>
-          <AddEmployee addEmployee={this.addEmployee}/>
+          
           <Employees employees={this.state.employees}/>
-
+          <br/>
+          
         </div>
 
         <div className="main-content">
           <p>Main Content</p>
-          
+          <AddEmployee addEmployee={this.addEmployee}/>
+
         </div>
       </div>
     );
