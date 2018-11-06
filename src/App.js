@@ -21,8 +21,9 @@ class App extends Component {
   }
 
   addEmployee = employee => {
-    EmployeeService.createEmployee(employee).then(employee => console.log("Created Employee: ", employee))
-
+    EmployeeService.createEmployee(employee).then(employee => this.setState({
+      employees: this.state.employees.concat(employee)
+    }))
    
   }
 
