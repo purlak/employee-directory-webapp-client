@@ -2,15 +2,15 @@ import React from 'react';
 
 const Employees = ({ employees }) => {
 
-  const renderEmployees = employees.map{employee =>
+  const renderEmployees = employees.map(employee =>
     <span key={employee.id}>{employee.name}</span>
-  }
+  )
 
-  return {
+  return (
     <div>
       {renderEmployees}
     </div>
-  }
+  )
 
 }
 
