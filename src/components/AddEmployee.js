@@ -14,6 +14,26 @@ class AddEmployee extends Component {
     }
   }
 
+  handleOnChange = event => {
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    const employee = this.state;
+    this.props.AddEmployee(employee)
+    this.setState({
+      first_name: '',
+      last_name: '',
+      title: '',
+      department: '',
+      location: ''
+    }) 
+  }
+
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
