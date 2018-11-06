@@ -11,7 +11,6 @@ const Employees = ({ employees }) => {
       {renderEmployees}
     </div>
   )
-
 }
 
 export default Employees;
