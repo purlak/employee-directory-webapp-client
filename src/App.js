@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
-
+import AddEmployee from './components/AddEmployee'
 import logo from './logo.svg';
 import './App.css';
 
