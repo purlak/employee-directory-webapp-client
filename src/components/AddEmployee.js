@@ -1,4 +1,4 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 
 class AddEmployee extends Component {
 
@@ -15,9 +15,9 @@ class AddEmployee extends Component {
   }
 
   render() {
-    return {
+    return (
       <form onSubmit={this.handleOnSubmit}>
-        <label htmlFor="first_name"<First Name</label>
+        <label htmlFor="first_name">First Name</label>
         <input
           type="text"
           name="first_name"
@@ -26,21 +26,30 @@ class AddEmployee extends Component {
           placeholder="First Name"
         />
 
-        <label htmlFor="last_name"<Last Name</label>
+        <label htmlFor="last_name">Last Name</label>
         <input
           type="text"
           name="last_name"
           value={this.state.last_name}
           onChange={this.handleOnChange}
           placeholder="Last Name"
-          />
+        />
 
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          value={this.state.title}
+          onChange={this.handleOnChange}
+          placeholder="Title"
+        />
+
+        <button>Add Employee</button>
 
       </form>
 
-
-
-
-    }
+    )
   }
 }
+
+export default AddEmployee;
