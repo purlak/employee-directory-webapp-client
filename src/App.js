@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Employees from './components/Employees'
+import Employees from './components/Employees';
+import EmployeeService from './services/EmployeeService';
 
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +10,19 @@ let employees = [
 ]
 
 class App extends Component {
+
+  constructor() {
+    super()
+
+    this.state= {
+      employees: []
+    }
+  }
+
+  componentDidMount() {
+    EmployeeService.fetchEmployees()
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +38,7 @@ class App extends Component {
           <p> Search </p>
           <p> Add an Employee</p>
 
-          <Employees employees={employees}/>
+          <Employees employees={this.state.employees}/>
         </div>
 
         <div className="main-content">
