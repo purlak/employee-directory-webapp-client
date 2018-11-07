@@ -10,6 +10,9 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    searchTerm: ''
+  }
   constructor() {
     super()
 
@@ -54,8 +57,13 @@ class App extends Component {
 
         <div className="main-content">
           <p>Main Content</p>
-          <AddEmployeeForm addEmployee={this.addEmployee}/>
+          <div>
+            <input type="text" value={this.state.searchTerm}/>
+          </div>
 
+          <br/>
+          <AddEmployeeForm addEmployee={this.addEmployee}/>
+          
         </div>
       </div>
     );
