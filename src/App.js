@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   handleSearchInput = event => {
-    console.log(event.target.value)
+    this.setState({searchTerm: event.target.value})
   }
 
   constructor() {
@@ -61,9 +61,10 @@ class App extends Component {
         </div>
 
         <div className="main-content">
-          <p>Main Content</p>
+          <p>Search Bar</p>
           <div>
             <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
+            <button onClick={this.searchEmployee}>Search</button>
           </div>
 
           <br/>
