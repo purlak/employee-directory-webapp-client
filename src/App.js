@@ -7,12 +7,13 @@ import store from './store.js'
 import logo from './logo.svg';
 import './App.css';
 
-const employeeApiUrl = "https://api.themoviedb.org"
+const employeeApiUrl = "https://api.themoviedb.org/3"
 
 class App extends Component {
 
   state = {
-    searchTerm: ''
+    searchTerm: '',
+    searchresults: []
   }
 
   handleSearchInput = event => {
@@ -20,7 +21,10 @@ class App extends Component {
   }
 
   searchEmployee = () => {
-    fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36`)
+    const query = this.state.searchTerm
+    fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36&query=${query}`)
+    .then(res => res.json())
+    .then(data => this.setState({searchresults: data.results})) 
   }
 
   constructor() {
@@ -70,6 +74,7 @@ class App extends Component {
           <div>
             <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
             <button onClick={this.searchEmployee}>Search</button>
+            <SearchEmployees searchresults={this.state.searchresults}/>
           </div>
 
           <br/>
