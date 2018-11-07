@@ -13,6 +13,11 @@ class App extends Component {
   state = {
     searchTerm: ''
   }
+
+  handleSearchInput = event => {
+    console.log(event.target.value)
+  }
+
   constructor() {
     super()
 
