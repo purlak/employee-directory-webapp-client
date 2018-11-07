@@ -3,7 +3,7 @@ import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
 import AddEmployeeForm from './components/AddEmployeeForm'
 import UpdateEmployeeForm from './components/UpdateEmployeeForm'
-
+import store from './store.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -37,7 +37,7 @@ class App extends Component {
         <h1>Company Name and Logo - Placeholder</h1>
 
         <div className="navbar">
-          <p>Welcome User</p>
+          <p>Welcome User!</p>
           <p>NavBar</p>
         
         </div>
