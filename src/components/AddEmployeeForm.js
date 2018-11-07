@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AddEmployee extends Component {
+class AddEmployeeForm extends Component {
 
   constructor (props) {
     super(props)
@@ -95,4 +95,4 @@ class AddEmployee extends Component {
   }
 }
 
-export default AddEmployee;
+export default AddEmployeeForm;

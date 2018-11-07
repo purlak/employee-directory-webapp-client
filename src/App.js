@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
-import AddEmployee from './components/AddEmployee'
+import AddEmployeeForm from './components/AddEmployeeForm'
+import UpdateEmployeeForm from './components/UpdateEmployeeForm'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -28,7 +30,7 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
 
       <div className="App">
@@ -52,7 +54,7 @@ class App extends Component {
 
         <div className="main-content">
           <p>Main Content</p>
-          <AddEmployee addEmployee={this.addEmployee}/>
+          <AddEmployeeForm addEmployee={this.addEmployee}/>
 
         </div>
       </div>
