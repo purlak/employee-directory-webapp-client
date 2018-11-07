@@ -7,7 +7,7 @@ import store from './store.js'
 import logo from './logo.svg';
 import './App.css';
 
-
+const employeeApiUrl = "https://www.potterapi.com/v1/"
 class App extends Component {
 
   state = {
@@ -16,6 +16,10 @@ class App extends Component {
 
   handleSearchInput = event => {
     this.setState({searchTerm: event.target.value})
+  }
+
+  handleSearchEmployee = event => {
+
   }
 
   constructor() {
