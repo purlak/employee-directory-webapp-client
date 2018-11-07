@@ -28,15 +28,15 @@ class App extends Component {
   }
 
   render() {
-
+    
     return (
 
       <div className="App">
         <h1>Company Name and Logo - Placeholder</h1>
 
         <div className="navbar">
-          <p>Welcome User!</p>
-          
+          <p>Welcome User</p>
+          <p>NavBar</p>
         
         </div>
 
