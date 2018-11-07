@@ -58,7 +58,7 @@ class App extends Component {
         <div className="main-content">
           <p>Main Content</p>
           <div>
-            <input type="text" value={this.state.searchTerm}/>
+            <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
           </div>
 
           <br/>
