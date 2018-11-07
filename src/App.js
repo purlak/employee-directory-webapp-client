@@ -35,12 +35,13 @@ class App extends Component {
         <h1>Company Name and Logo - Placeholder</h1>
 
         <div className="navbar">
-          <p>NavBar</p>
+          <p>Welcome User!</p>
+          
         
         </div>
 
         <div className="sidebar">
-          <p>SideBar</p>
+          
           <p> Search </p>
           <p> Add an Employee</p>
           
