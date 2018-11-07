@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
 import AddEmployeeForm from './components/AddEmployeeForm'
+import SearchEmployees from './components/SearchEmployees'
 import UpdateEmployeeForm from './components/UpdateEmployeeForm'
 import store from './store.js'
 import logo from './logo.svg';
@@ -13,7 +14,7 @@ class App extends Component {
 
   state = {
     searchTerm: '',
-    searchresults: []
+    searchResults: []
   }
 
   handleSearchInput = event => {
@@ -24,7 +25,7 @@ class App extends Component {
     const query = this.state.searchTerm
     fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36&query=${query}`)
     .then(res => res.json())
-    .then(data => this.setState({searchresults: data.results})) 
+    .then(data => this.setState({searchResults: data.results})) 
   }
 
   constructor() {
@@ -47,7 +48,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log(this.state.searchResults)
     return (
 
       <div className="App">
@@ -74,7 +75,7 @@ class App extends Component {
           <div>
             <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
             <button onClick={this.searchEmployee}>Search</button>
-            <SearchEmployees searchresults={this.state.searchresults}/>
+            <SearchEmployees searchResults={this.state.searchResults} />
           </div>
 
           <br/>
