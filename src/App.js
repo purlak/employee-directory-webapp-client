@@ -7,7 +7,8 @@ import store from './store.js'
 import logo from './logo.svg';
 import './App.css';
 
-const employeeApiUrl = "https://www.potterapi.com/v1/"
+const employeeApiUrl = "https://api.themoviedb.org"
+
 class App extends Component {
 
   state = {
@@ -18,8 +19,8 @@ class App extends Component {
     this.setState({searchTerm: event.target.value})
   }
 
-  handleSearchEmployee = event => {
-
+  searchEmployee = () => {
+    fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36`)
   }
 
   constructor() {
