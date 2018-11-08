@@ -16,6 +16,11 @@ const employeeApiUrl = "https://api.themoviedb.org/3"
 
 class App extends Component {
 
+  componentDidMount() {
+    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
+    // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
+  }
+
   constructor() {
     super()
 
@@ -27,30 +32,6 @@ class App extends Component {
     }
   }
 
-  handleSearchInput = event => {
-    this.setState({searchTerm: event.target.value})
-  }
-
-  searchEmployee = () => {
-    const query = this.state.searchTerm
-    fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36&query=${query}`)
-    .then(res => res.json())
-
-    .then(data => this.setState({searchResults: data.results})) 
-  }
-
-  // searchDb = event => {
-  //   fetch (`http://localhost:3001/api/employees`)
-  //   .then(res => res.json())
-  //   .then(data => this.setState({employees: this.state.employees.concat(data.results)})) 
-
-  // }
-
-  componentDidMount() {
-    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
-    // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
-  }
-
   addEmployee = employee => {
     EmployeeService.createEmployee(employee).then(employee => this.setState({
       employees: this.state.employees.concat(employee)
@@ -58,9 +39,9 @@ class App extends Component {
    
   }
 
+
   render() {
-    console.log(this.state.employees)
-    console.log(this.state.searchResults)
+    
     return (
 
       <div className="App">
@@ -85,15 +66,7 @@ class App extends Component {
 
         <div className="main-content">
           
-          <div>
-            <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm} placeholder="Search" className="searchBar"/>
-            <button onClick={this.searchEmployee, this.searchDb} className="buttonSize">Search</button>
-            <div>
-              <Employees employees={this.state.employees}/>
-              <SearchEmployees searchResults={this.state.searchResults} />
-             
-
-            </div>
+          
           </div>
 
           <br/>
@@ -106,4 +79,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
