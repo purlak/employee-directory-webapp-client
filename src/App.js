@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
 import AddEmployeeForm from './components/AddEmployeeForm'
@@ -63,7 +67,8 @@ class App extends Component {
           
           <p> Search </p>
           <p> Add an Employee</p>
-          
+          <AddEmployeeForm addEmployee={this.addEmployee}/>
+
           <Employees employees={this.state.employees}/>
           <br/>
           
@@ -78,7 +83,7 @@ class App extends Component {
           </div>
 
           <br/>
-          <AddEmployeeForm addEmployee={this.addEmployee}/>
+          
           
         </div>
       </div>
