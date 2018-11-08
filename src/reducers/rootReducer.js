@@ -4,7 +4,7 @@ import employeesReducer from './employeesReducer';
     
      
 const rootReducer = combineReducers({
-  employees
+  // employees: employeesReducer
   
 });
      
