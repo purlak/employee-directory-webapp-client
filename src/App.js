@@ -35,8 +35,16 @@ class App extends Component {
     const query = this.state.searchTerm
     fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36&query=${query}`)
     .then(res => res.json())
+
     .then(data => this.setState({searchResults: data.results})) 
   }
+
+  // searchDb = event => {
+  //   fetch (`http://localhost:3001/api/employees`)
+  //   .then(res => res.json())
+  //   .then(data => this.setState({employees: this.state.employees.concat(data.results)})) 
+
+  // }
 
   componentDidMount() {
     EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
@@ -51,12 +59,13 @@ class App extends Component {
   }
 
   render() {
-    
+    console.log(this.state.employees)
+    console.log(this.state.searchResults)
     return (
 
       <div className="App">
         <div>
-        <h1>Company Name and Logo - Placeholder</h1>
+        
 
         <div className="navbar">
           <p>Welcome User!</p>
@@ -69,7 +78,6 @@ class App extends Component {
           <p> Search </p>
           <p> Add an Employee</p>
           <AddEmployeeForm addEmployee={this.addEmployee}/>
-
           <Employees employees={this.state.employees}/>
           <br/>
           
@@ -79,9 +87,12 @@ class App extends Component {
           
           <div>
             <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm} placeholder="Search" className="searchBar"/>
-            <button onClick={this.searchEmployee} className="buttonSize">Search</button>
+            <button onClick={this.searchEmployee, this.searchDb} className="buttonSize">Search</button>
             <div>
-            <SearchEmployees searchResults={this.state.searchResults} />
+              <Employees employees={this.state.employees}/>
+              <SearchEmployees searchResults={this.state.searchResults} />
+             
+
             </div>
           </div>
 

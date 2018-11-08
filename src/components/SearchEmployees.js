@@ -30,9 +30,11 @@ class SearchEmployees extends Component {
         {this.props.searchResults.map(searchResult =>
 
           <div className="displayEmployee">
-          <p class="displayName">{searchResult.name} <br/></p>
+          <p className="displayName">{searchResult.name} <br/></p>
+          <div>
           <img src={`${imageBaseUrl}/${searchResult.profile_path}`} className="imageSize" />
           <br/>
+          </div>
           </div>
         )}
 
