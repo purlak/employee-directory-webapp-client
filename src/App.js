@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   render() {
-    
+    console.log(this.state.searchResults)
     return (
 
       <div className="App">
@@ -79,7 +79,9 @@ class App extends Component {
           <div>
             <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
             <button onClick={this.searchEmployee}>Search</button>
+            <div>
             <SearchEmployees searchResults={this.state.searchResults} />
+            </div>
           </div>
 
           <br/>
