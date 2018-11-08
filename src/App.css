@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: whites;
 }
 
 .navbar {
@@ -21,16 +22,26 @@
   height: 90vh;
   background: royalblue;
   color: white;
-  border-right: 2px solid white;
+  
 }
 
 .main-content {
   float: left;
-  width: 70%;
+  width: 71%;
   height: 90vh;
-  background: whitesmoke;
+  background-color: white;
   color:  black;
 
 }
 
+.searchBar {
+  border: 2px solid lightgrey;
+  margin-top: 50px;
+  width: 30%;
+  height: 2vh;
+}
 
+.buttonSize {
+  margin-left: 5px;
+  background-color: lightgrey;
+}

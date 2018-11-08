@@ -51,10 +51,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.searchResults)
+    
     return (
 
       <div className="App">
+        <div>
         <h1>Company Name and Logo - Placeholder</h1>
 
         <div className="navbar">
@@ -75,10 +76,10 @@ class App extends Component {
         </div>
 
         <div className="main-content">
-          <p>Search Bar</p>
+          
           <div>
-            <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm}/>
-            <button onClick={this.searchEmployee}>Search</button>
+            <input type="text" onChange={this.handleSearchInput} value={this.state.searchTerm} placeholder="Search" className="searchBar"/>
+            <button onClick={this.searchEmployee} className="buttonSize">Search</button>
             <div>
             <SearchEmployees searchResults={this.state.searchResults} />
             </div>
@@ -89,6 +90,7 @@ class App extends Component {
           
         </div>
       </div>
+     </div> 
     );
   }
 }
