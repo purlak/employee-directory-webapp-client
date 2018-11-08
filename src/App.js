@@ -12,9 +12,15 @@ const employeeApiUrl = "https://api.themoviedb.org/3"
 
 class App extends Component {
 
-  state = {
-    searchTerm: '',
-    searchResults: []
+  constructor() {
+    super()
+
+    this.state = {
+      employees: [],
+      searchTerm: '',
+      searchResults: []
+
+    }
   }
 
   handleSearchInput = event => {
@@ -28,16 +34,9 @@ class App extends Component {
     .then(data => this.setState({searchResults: data.results})) 
   }
 
-  constructor() {
-    super()
-
-    this.state = {
-      employees: []
-    }
-  }
-
   componentDidMount() {
     EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
+    // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
   }
 
   addEmployee = employee => {
@@ -48,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.searchResults)
+    
     return (
 
       <div className="App">
