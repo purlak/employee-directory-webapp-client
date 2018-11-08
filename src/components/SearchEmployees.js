@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import '../SearchEmployees.css';
 
 // const SearchEmployees = ({ searchResults }) => {
 
@@ -13,18 +14,26 @@ import React, { Component, Fragment } from 'react';
 //   )
 // }
 
+const imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
+
 class SearchEmployees extends Component {
 
   render() {
-    
+
     if (this.props.searchResults.length === 0) {
       return <h3>Name not found</h3>
     } else {
+  
       return (
 
       <Fragment>
         {this.props.searchResults.map(searchResult =>
-          <h3>{searchResult.name} <br/></h3>
+
+          <div className="displayEmployee">
+          <p class="displayName">{searchResult.name} <br/></p>
+          <img src={`${imageBaseUrl}/${searchResult.profile_path}`} className="imageSize" />
+          <br/>
+          </div>
         )}
 
       </Fragment>
