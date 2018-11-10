@@ -11,16 +11,16 @@
 }
 
 .space {
-  height: 12vh;
+  height: 15vh;
   width: 100vw;
 }
 
 .space1 {
   height: 70vh;
   margin: auto;
-  width: 40vw;
-  background-color: black;
-  opacity: .8;
+  width: 70vw;
+  background-color: snow;
+  opacity: .6;
   transition: opacity .8s;
 }
 
