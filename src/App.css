@@ -1,3 +1,4 @@
+/*Landing Page CSS*/
 .App {
   text-align: center;
   width: 100vw;
@@ -7,7 +8,6 @@
   transition: opacity .5s;
   box-shadow: -5px 5px 10px 3px rgba(0,0,0,0.2);
   
-
 }
 
 .space {
@@ -20,9 +20,26 @@
   margin: auto;
   width: 70vw;
   background-color: grey;
-  opacity: .6;
+  opacity: .8;
   transition: opacity .8s;
 }
+
+.searchBar {
+  margin: 2vh;
+  background-color: white;
+  border: 2px solid grey;
+  width: 50%;
+  height: 3.5vh;
+  font-size: 20px;  
+}
+
+.buttonSize {
+  margin-top: 15px;
+ 
+  background-color: lightgrey;
+  font-size: 20px; 
+}
+
 
 .navbar {
   float: left;
@@ -56,20 +73,5 @@
 
 }
 
-.searchBar {
-  margin: 2vh;
-  background-color: white;
-  border: 2px solid grey;
-  width: 50%;
-  height: 3.5vh;
-  font-size: 20px; 
-  
-  
-}
 
-.buttonSize {
-  margin-top: 15px;
- 
-  background-color: lightgrey;
-  font-size: 20px; 
-}
+
