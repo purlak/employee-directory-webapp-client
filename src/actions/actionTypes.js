@@ -7,6 +7,13 @@ const loginSuccess = (employee) => {
   }
 }
 
+const loginFailure = (errors) => {
+  return {
+    type: 'LOGIN_FAILURE',
+    errors: errors.message
+  }
+}
+
 export const login = (employee, history) => {
   
   return dispatch => {
