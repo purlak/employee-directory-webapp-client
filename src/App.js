@@ -6,31 +6,39 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
 import AddEmployeeForm from './components/AddEmployeeForm'
-import SearchEmployees from './components/SearchEmployees'
+//import SearchEmployees from './components/SearchEmployees'
 import UpdateEmployeeForm from './components/UpdateEmployeeForm'
-import store from './store.js'
-import logo from './logo.svg';
+import background from './background-image.svg';
+
+
+import Search from './containers/Search'
+//import store from './store.js'
 import './App.css';
 
-const employeeApiUrl = "https://api.themoviedb.org/3"
 
 class App extends Component {
 
+state = {
+  employees: []
+
+}
   componentDidMount() {
-    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
+    //this.props.fetchEmployees();
+
+    //EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
     // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
   }
 
-  constructor() {
-    super()
+  // constructor() {
+  //   super()
 
-    this.state = {
-      employees: [],
-      searchTerm: '',
-      searchResults: []
+  //   this.state = {
+  //     employees: [],
+  //     searchTerm: '',
+  //     searchResults: []
 
-    }
-  }
+  //   }
+  // }
 
   addEmployee = employee => {
     EmployeeService.createEmployee(employee).then(employee => this.setState({
@@ -41,40 +49,16 @@ class App extends Component {
 
 
   render() {
-    
     return (
-
-      <div className="App">
-        <div>
         
-
-        <div className="navbar">
-          <p>Welcome User!</p>
-          <p>NavBar</p>
+      <div className="App" style={{backgroundImage: `url(${background}`, 
+            backgroundSize: 'cover',
+            backgroundRepeat: 'noRepeat',}}>
         
-        </div>
-
-        <div className="sidebar">
-          
-          <p> Search </p>
-          <p> Add an Employee</p>
-          <AddEmployeeForm addEmployee={this.addEmployee}/>
-          <Employees employees={this.state.employees}/>
-          <br/>
-          
-        </div>
-
-        <div className="main-content">
-          
-          
-          </div>
-
-          <br/>
-          
-          
-        </div>
+        <h1>Hello World</h1>
+        
       </div>
-     </div> 
+    
     );
   }
 }
@@ -85,5 +69,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
 

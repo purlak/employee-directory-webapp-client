@@ -3,7 +3,7 @@ import React from 'react';
 const Employees = ({ employees }) => {
 
   const renderEmployees = employees.map(employee =>
-    <span key={employee.id}>{employee.name}  <br/></span>
+    <span key={employee.id}>{employee.first_name}  <br/></span>
   )
 
   return (
