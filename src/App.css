@@ -19,7 +19,7 @@
   height: 70vh;
   margin: auto;
   width: 70vw;
-  background-color: snow;
+  background-color: grey;
   opacity: .6;
   transition: opacity .8s;
 }
