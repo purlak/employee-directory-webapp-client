@@ -25,7 +25,7 @@ state = {
   componentDidMount() {
     //this.props.fetchEmployees();
 
-    //EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
+    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
     // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
   }
 
@@ -47,16 +47,24 @@ state = {
    
   }
 
-
   render() {
     return (
         
-      <div className="App" style={{backgroundImage: `url(${background}`, 
-            backgroundSize: 'cover',
-            backgroundRepeat: 'noRepeat',}}>
-        
-        <h1>Hello World</h1>
-        
+      <div className="App" style={{
+        backgroundImage: `url(${background}`, 
+        backgroundSize: 'cover',
+        backgroundRepeat: 'noRepeat',
+      }}>
+
+
+      <div className="space"></div>
+      
+      <div className="space1">
+      
+
+        <Employees employees={this.state.employees}/>
+        <Search className="searchBar"/>
+      </div>  
       </div>
     
     );

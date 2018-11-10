@@ -20,9 +20,9 @@ class SearchEmployees extends Component {
 
   render() {
 
-    if (this.props.searchResults.length === 0) {
-      return <h3>Name not found</h3>
-    } else {
+    // if (this.props.searchResults.length === 0) {
+    //   return <h3>Name not found</h3>
+    // } else {
   
       return (
 
@@ -32,15 +32,17 @@ class SearchEmployees extends Component {
           <div className="displayEmployee">
           <p className="displayName">{searchResult.name} <br/></p>
           <div>
+          
           <img src={`${imageBaseUrl}/${searchResult.profile_path}`} className="imageSize" />
           <br/>
+          
           </div>
           </div>
-        )}
+         )}
 
       </Fragment>
     )
-    }
+    
   }
 }
 
