@@ -1,4 +1,13 @@
-export const login = (user, history) => {
+const API_URL = "http://localhost:3001/api"
+
+const loginSuccess = (employee) => {
+  return {
+    type: 'LOGIN',
+    employee: employee
+  }
+}
+
+export const login = (employee, history) => {
   
   return dispatch => {
     return fetch(`${API_URL}/sessions`, {
@@ -7,7 +16,7 @@ export const login = (user, history) => {
         'Content-Type': 'application/json',
       },
 
-        body: JSON.stringify({user})
+        body: JSON.stringify({employee})
       })
         .then(res => res.json())
         .then((response) => {
@@ -19,7 +28,7 @@ export const login = (user, history) => {
           } else{
             sessionStorage.setItem('Token', response.token);
             history.push("/")
-            dispatch(loginSuccess(response.user))
+            dispatch(loginSuccess(response.employee))
           }
         })
         .catch( errors => {
