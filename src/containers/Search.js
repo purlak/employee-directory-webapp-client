@@ -43,7 +43,13 @@ class Search extends Component {
 
     <div>
 
-      <input type="text" onChange={this.onInputSearchTerm} value={this.state.searchTerm} placeholder="Search" className="searchBar"/>
+      <input 
+        type="text" 
+        onChange={this.onInputSearchTerm} 
+        value={this.state.searchTerm} 
+        placeholder="Search" 
+        className="searchBar"
+      />
       <br/>
       <button onClick={this.searchDb} className="buttonSize">Search</button>
       

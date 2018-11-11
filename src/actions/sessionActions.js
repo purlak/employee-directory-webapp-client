@@ -14,13 +14,6 @@ const updateUserSuccess = (user) => {
   }
 }
 
-// const deleteUserCitySuccess = (city) => {
-//   return {
-//     type: types.DELETE_USER_CITY_SUCCESS,
-//     payload: city
-//   }
-// }
-
 const userError = (message) => {
   return {
     type: types.USER_ERROR,
@@ -29,7 +22,7 @@ const userError = (message) => {
 }
 
 export const loginUser = (credentials) => {
-  console.log(credentials)
+  // console.log(credentials)
   return dispatch => {
     return fetch('http://localhost:3001/api/login', {
       method: 'POST',
@@ -38,17 +31,19 @@ export const loginUser = (credentials) => {
       },
       body: JSON.stringify(credentials)
     })
-    .then(response => console.log(response)) //response.json())
+    .then(response => response.json())
     .then(result => {
-      if (result.errors) {
-        dispatch(userError(result.errors))
-      } else {
+    //console.log(result)
+    // {
+      // if (result.errors) {
+      //   dispatch(userError(result.errors))
+      // } else {
         localStorage.setItem('Token', result.token)
         dispatch(loadUser(result.employee.id))
-        dispatch({ type: types.CLEAR_ERROR })
-      }
-    })
-    .catch(error => console.log(error))
+        // dispatch({ type: types.CLEAR_ERROR })
+      })
+    
+    // .catch(error => console.log(error))
   }
 }
 
@@ -133,25 +128,7 @@ export const updateUser = (user) => {
   }
 }
 
-// export const deleteUserCity = (userCityId) => {
-//   return dispatch => {
-//     return fetch(`http://localhost:3001/api/user_cities/${userCityId}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//     .then(response => response.json())
-//     .then(result => {
-//       if (result.errors) {
-//         dispatch(userError(result.errors))
-//       } else {
-//         dispatch(deleteUserCitySuccess(result.id))
-//         dispatch({ type: types.CLEAR_ERROR })
-//       }
-//     })
-//   }
-// }
+
 
 export const logout = () => {
   return dispatch => {
