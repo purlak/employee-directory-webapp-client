@@ -24,6 +24,16 @@
   transition: opacity .8s;
 }
 
+.welcome {
+  padding-top: 5vh;
+  padding-left: 5vw;
+  color: black;
+  text-align: left;
+  margin: auto;
+  font-size: 30px;  
+
+}
+
 .searchBar {
   margin: 2vh;
   background-color: white;
