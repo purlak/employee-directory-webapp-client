@@ -22,12 +22,10 @@ class Login extends Component {
   onLogin = (event) => {
     event.preventDefault();
     this.props.loginUser(this.state)
-    this.props.history.push(`/find`);
+    this.props.history.push(`/search`);
   }
 
   render() {
-   
-
     return (
       <div>
       <form>
