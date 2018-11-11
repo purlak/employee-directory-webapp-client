@@ -33,17 +33,6 @@ state = {
     // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
   }
 
-  // constructor() {
-  //   super()
-
-  //   this.state = {
-  //     employees: [],
-  //     searchTerm: '',
-  //     searchResults: []
-
-  //   }
-  // }
-
   addEmployee = employee => {
     EmployeeService.createEmployee(employee).then(employee => this.setState({
       employees: this.state.employees.concat(employee)
@@ -62,17 +51,21 @@ state = {
         backgroundRepeat: 'noRepeat',
       }}>
 
-
-      <div className="space"></div>
-      
-      <div className="space1">
+      <Router>
+        <div>
+        <div className="space"></div>
         
-        <h3 className="welcome">Welcome!</h3>
-        <Login />
-
-        <Employees employees={this.state.employees}/>
-        <Search className="searchBar"/>
-      </div>  
+        <div className="space1">
+          
+          <h3 className="welcome">Welcome!</h3>
+          <Route exact path="/" render={Login} />
+          <Route exact path="/find" render={Search} />
+          
+          <Employees employees={this.state.employees}/>
+          
+        </div>  
+        </div>
+      </Router>
       </div>
     
     );
