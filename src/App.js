@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { findUser } from './actions/sessionActions';
 
 
-import Employees from './components/Employees';
-import EmployeeService from './services/EmployeeService';
-import AddEmployeeForm from './components/AddEmployeeForm'
-//import SearchEmployees from './components/SearchEmployees'
-import UpdateEmployeeForm from './components/UpdateEmployeeForm'
+// import Employees from './components/Employees';
+// // import EmployeeService from './services/EmployeeService';
+// import AddEmployeeForm from './components/AddEmployeeForm'
+// //import SearchEmployees from './components/SearchEmployees'
+// import UpdateEmployeeForm from './components/UpdateEmployeeForm'
 import background from './background-image.svg';
 
 
@@ -26,29 +26,29 @@ state = {
   employees: []
 
 }
-  componentDidMount() {
+  // componentDidMount() {
     //this.props.fetchEmployees();
 
-    EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
-    // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
-  }
+  //   EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
+  //   // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
+  // }
 
-  addEmployee = employee => {
-    EmployeeService.createEmployee(employee).then(employee => this.setState({
-      employees: this.state.employees.concat(employee)
-    }))
+  // addEmployee = employee => {
+  //   EmployeeService.createEmployee(employee).then(employee => this.setState({
+  //     employees: this.state.employees.concat(employee)
+  //   }))
    
-  }
+  // }
 
   render() {
-    const { employee, error } = this.props;
+    const { employee, query, error } = this.props;
 
     return (
         
       <div className="App" style={{
         backgroundImage: `url(${background}`, 
-        backgroundSize: 'cover',
-        backgroundRepeat: 'noRepeat',
+         backgroundSize: 'contain',
+        backgroundRepeat: 'Repeat',
       }}>
 
       <Router>
@@ -59,10 +59,9 @@ state = {
           
           <h3 className="welcome">Welcome!</h3>
           <Route exact path="/" render={Login} />
-          <Route exact path="/find" render={Search} />
-          
-          <Employees employees={this.state.employees}/>
-          
+          <Route path="/search" render={Search} />
+          <Search />
+           
         </div>  
         </div>
       </Router>
