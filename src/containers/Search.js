@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { findUser } from '../actions/sessionActions';
 
 import Employees from '../components/Employees'
 import SearchEmployees from '../components/SearchEmployees'
@@ -9,13 +8,22 @@ import '../SearchEmployees.css';
 const employeeApiUrl = "https://api.themoviedb.org/3"
 
 class Search extends Component {
-  state = {
-    employees: [],
-    searchTerm: '',
-    searchResults: []
-  };
+  constructor () {
+    super();
+  
+    this.state = {
+      employees: [],
+      searchTerm: '',
+      searchResults: []
+    };
+  }
 
   onInputSearchTerm = event => {
+    this.setState({
+      employees: [],
+      searchTerm: '',
+      searchResults: []
+    });
     this.setState({searchTerm: event.target.value})
   } //obtain search input 
 
@@ -28,19 +36,60 @@ class Search extends Component {
 
     .then(data => this.setState({searchResults: data.results})) 
 
-
   }
 
   searchDb = async event => {
     await this.onSearch(event)
-
-    await fetch (`http://localhost:3001/api/employees`)
+    const query = this.state.searchTerm
+    // console.log(query)
+    fetch (`http://localhost:3001/api/search/${query}`)
     .then(res => res.json())
     .then(data => this.setState({employees: this.state.employees.concat(data)})) 
 
   }
 
-  render () {
+  render () {    
+    // console.log(this.state.searchTerm)
+    // console.log (this.state.searchResults)
+    if (this.state.searchTerm === '' && this.state.searchResults.length === 0) {  
+      return (
+        <div>
+
+      <input 
+        type="text" 
+        onChange={this.onInputSearchTerm} 
+        value={this.state.searchTerm} 
+        placeholder="Search" 
+        className="searchBar"
+      />
+      <br/>
+      <button onClick={this.searchDb} className="buttonSize">Search</button>
+      </div>
+
+      )
+
+    }
+    
+    else if (this.state.searchTerm !== '' && this.state.searchResults.length == 0) { 
+      return (
+        <div>
+
+      <input 
+        type="text" 
+        onChange={this.onInputSearchTerm} 
+        value={this.state.searchTerm} 
+        placeholder="Search" 
+        className="searchBar"
+      />
+      <br/>
+      <button onClick={this.searchDb} className="buttonSize">Search</button>
+      </div>
+
+      )
+
+    }
+
+    else {
     return (
 
     <div>
@@ -57,11 +106,13 @@ class Search extends Component {
       
       <div>
         <Employees employees={this.state.employees}/>
+
         <SearchEmployees searchResults={this.state.searchResults} />
       </div>
     </div>
   )
   }
+}
 
   
 }
