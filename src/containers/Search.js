@@ -21,7 +21,7 @@ class Search extends Component {
   onInputSearchTerm = event => {
     this.setState({
       employees: [],
-      searchTerm: '',
+      // searchTerm: '',
       searchResults: []
     });
     this.setState({searchTerm: event.target.value})
@@ -33,9 +33,8 @@ class Search extends Component {
 
     return fetch (`${employeeApiUrl}/search/person?api_key=d294f330aac8c6ae0963b497558e9f36&query=${query}`)
     .then(res => res.json())
-
     .then(data => this.setState({searchResults: data.results})) 
-
+    
   }
 
   searchDb = async event => {
@@ -44,14 +43,17 @@ class Search extends Component {
     // console.log(query)
     fetch (`http://localhost:3001/api/search/${query}`)
     .then(res => res.json())
-    .then(data => this.setState({employees: this.state.employees.concat(data)})) 
+    
 
+    .then(data => this.setState({employees: this.state.employees.concat(data)})) 
+  
   }
 
   render () {    
-    // console.log(this.state.searchTerm)
-    // console.log (this.state.searchResults)
-    if (this.state.searchTerm === '' && this.state.searchResults.length === 0) {  
+    console.log(this.state.searchTerm)
+    console.log(5)
+    console.log (this.state.searchResults)
+    if (!this.state.searchTerm) {  
       return (
         <div>
 
@@ -70,7 +72,7 @@ class Search extends Component {
 
     }
     
-    else if (this.state.searchTerm !== '' && this.state.searchResults.length == 0) { 
+    else if (this.state.searchResults.length === 0) { 
       return (
         <div>
 
@@ -84,6 +86,7 @@ class Search extends Component {
       <br/>
       <button onClick={this.searchDb} className="buttonSize">Search</button>
       </div>
+
 
       )
 
