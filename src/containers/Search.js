@@ -40,7 +40,7 @@ class Search extends Component {
   searchDb = async event => {
     await this.onSearch(event)
     const query = this.state.searchTerm
-    // console.log(query)
+    
     fetch (`http://localhost:3001/api/search/${query}`)
     .then(res => res.json())
     
@@ -50,9 +50,6 @@ class Search extends Component {
   }
 
   render () {    
-    console.log(this.state.searchTerm)
-    console.log(5)
-    console.log (this.state.searchResults)
     if (!this.state.searchTerm) {  
       return (
         <div>
