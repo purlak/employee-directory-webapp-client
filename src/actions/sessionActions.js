@@ -95,7 +95,7 @@ export const findUser = (token) => {
 
 export const loadUser = (userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${userId}`, {
+    return fetch(`http://localhost:3001/api/employees/${userId}`, {
       method: 'GET'
     })
     .then(response => response.json())

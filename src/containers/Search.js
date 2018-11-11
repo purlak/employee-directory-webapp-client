@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { findUser } from '../actions/sessionActions';
+
 import Employees from '../components/Employees'
 import SearchEmployees from '../components/SearchEmployees'
 import '../SearchEmployees.css';
