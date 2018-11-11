@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import { findUser } from './actions/sessionActions';
+
 
 import Employees from './components/Employees';
 import EmployeeService from './services/EmployeeService';
@@ -12,6 +14,8 @@ import background from './background-image.svg';
 
 
 import Search from './containers/Search'
+import Login from './containers/Login'
+
 //import store from './store.js'
 import './App.css';
 
@@ -48,6 +52,8 @@ state = {
   }
 
   render() {
+    const { employee, error } = this.props;
+
     return (
         
       <div className="App" style={{
@@ -60,7 +66,9 @@ state = {
       <div className="space"></div>
       
       <div className="space1">
-      
+        
+        <h3 className="welcome">Welcome!</h3>
+        <Login />
 
         <Employees employees={this.state.employees}/>
         <Search className="searchBar"/>
@@ -73,9 +81,10 @@ state = {
 
 const mapStateToProps = (state) => {
   return {
-    
+    employee: state.session.employee,
+    error: state.session.error
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { findUser } )(App);
 
