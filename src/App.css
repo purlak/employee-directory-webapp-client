@@ -19,7 +19,7 @@
 .space1 {
   height: 70vh;
   margin: auto;
-  width: 70vw;
+  width: 100vw;
   background-color: white;
   opacity: .8;
   transition: opacity .8s;
