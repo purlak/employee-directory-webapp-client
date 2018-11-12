@@ -48,7 +48,7 @@ state = {
       <div className="App" style={{
         backgroundImage: `url(${background}`, 
          backgroundSize: 'contain',
-        backgroundRepeat: 'Repeat',
+        backgroundRepeat: 'Norepeat',
       }}>
 
       <Router>
