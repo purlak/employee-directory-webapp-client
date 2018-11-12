@@ -57,11 +57,11 @@ state = {
         
         <div className="space1">
           
-          <h3 className="welcome">Welcome!</h3>
-          <Route exact path="/" render={Login} />
-          <Route path="`/employees/find`" render={Search} />
-          <Search />
-           
+          <Switch>
+          
+          <Route exact path="/" component={Login} />
+          <Route path="/findemployee" component={Search} />
+          </Switch>
         </div>  
         </div>
       </Router>
