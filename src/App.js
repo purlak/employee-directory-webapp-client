@@ -15,6 +15,7 @@ import background from './background-image.svg';
 
 import Search from './containers/Search'
 import Login from './containers/Login'
+import Signup from './containers/Signup';
 
 //import store from './store.js'
 import './App.css';
