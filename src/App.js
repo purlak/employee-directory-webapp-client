@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { findUser } from './actions/sessionActions';
 
 
-// import Employees from './components/Employees';
-// // import EmployeeService from './services/EmployeeService';
-// import AddEmployeeForm from './components/AddEmployeeForm'
+import Employees from './components/Employees';
+import EmployeeService from './services/EmployeeService';
+import AddEmployeeForm from './components/AddEmployeeForm'
 // //import SearchEmployees from './components/SearchEmployees'
 // import UpdateEmployeeForm from './components/UpdateEmployeeForm'
 import background from './background-image.svg';
@@ -24,8 +24,8 @@ import './App.css';
 class App extends Component {
 
 state = {
-  employees: []
-
+  employees: [],
+  addEmployee: []
 }
 
 componentDidMount() {
@@ -34,22 +34,14 @@ componentDidMount() {
   //     this.props.findUser(token);
   // }
 
-    //this.props.fetchEmployees();
-
-  //   EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
-  //   // EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
-  // }
-
-  // addEmployee = employee => {
-  //   EmployeeService.createEmployee(employee).then(employee => this.setState({
-  //     employees: this.state.employees.concat(employee)
-  //   }))
+    
+  }   
    
-}
+
 
   render() {
     const { employee, query, error } = this.props;
-        
+
     return (
        
       <div className="App" style={{
@@ -69,12 +61,12 @@ componentDidMount() {
           { employee.id ?
           <Route exact path="/findemployee" render={(props) => <Search employee={employee} />} />
           :
-          <Route exact path="/" component={Login} />  
-
-
+          <Route exact path="/" component={Login} /> 
           }
-          <Route path="/findemployee" component={Search} />
+
+          <Route exact path="/add" component={AddEmployeeForm} />
           <Route exact path='/signup' component={Signup} />
+          
           </Switch>
         </div>  
         </div>
