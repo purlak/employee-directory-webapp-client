@@ -24,8 +24,8 @@ class SearchEmployees extends Component {
 //   }
 
 render() {
-  console.log(this.props.searchResults)
-  console.log(this.props.employees)
+  // console.log(this.props.searchResults)
+  // console.log(this.props.employee)
 
  
   // const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage

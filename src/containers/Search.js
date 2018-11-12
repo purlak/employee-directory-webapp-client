@@ -54,11 +54,15 @@ class Search extends Component {
   }
 
   render () {    
-    console.log(this.state.searchResults)
+    console.log(this.props.employee)
+    // const name = this.props.employee.name
+    
     if (!this.state.searchTerm) {  
       return (
-        <div>
 
+        <div>
+        
+        <h3 className="welcome">Welcome!</h3>
       <input 
         type="text" 
         onChange={this.onInputSearchTerm} 

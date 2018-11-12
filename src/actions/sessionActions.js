@@ -54,7 +54,7 @@ export const signupUser = (userInfo) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({user: userInfo})
+      body: JSON.stringify({employee: userInfo})
     })
     .then(response => response.json())
     .then(result => {
@@ -89,7 +89,7 @@ export const findUser = (token) => {
         dispatch({ type: types.CLEAR_ERROR })
       }
     })
-    .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 }
 
@@ -102,13 +102,13 @@ export const loadUser = (userId) => {
     .then(result => {
       dispatch(loadUserSuccess(result))
     })
-    .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 }
 
 export const updateUser = (user) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/users/${user.id}`, {
+    return fetch(`http://localhost:3001/api/employees/${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

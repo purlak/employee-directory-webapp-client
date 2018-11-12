@@ -47,7 +47,7 @@ render() {
         <input
             type="text"
             id="username"
-            name="Username"
+            name="username"
             placeholder="Username"
             value={this.state.username}
             onChange={(event) => this.onInput(event)}
