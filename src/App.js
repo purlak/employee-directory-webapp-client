@@ -27,7 +27,13 @@ state = {
   employees: []
 
 }
-  // componentDidMount() {
+
+componentDidMount() {
+  const token = localStorage.getItem('Token');
+    if (token) {
+      this.props.findUser(token);
+  }
+
     //this.props.fetchEmployees();
 
   //   EmployeeService.fetchEmployees().then(employees => this.setState({ employees }))
@@ -39,7 +45,7 @@ state = {
   //     employees: this.state.employees.concat(employee)
   //   }))
    
-  // }
+}
 
   render() {
     const { employee, query, error } = this.props;
@@ -60,8 +66,11 @@ state = {
         <div className="space1">
           
           <Switch>
-          
-          <Route exact path="/" component={Login} />
+          { employee.id ?
+            <Route path="/findemployee" component={Search} />
+            :
+            <Route exact path="/" component={Login} />  
+          }
           <Route path="/findemployee" component={Search} />
           <Route exact path='/signup' component={Signup} />
           </Switch>
