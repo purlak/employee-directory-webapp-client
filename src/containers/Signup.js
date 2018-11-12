@@ -14,6 +14,19 @@ state = {
   location: ''
 
 }
+
+onInput = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+}
+
+onSignup = event => {
+    event.preventDefault();
+
+    this.props.signupUser(this.state)
+}
+
 render() {
 
 
@@ -86,7 +99,7 @@ render() {
           />
         <br />
 
-        <button onClick={this.onLogin} className="buttonSize">SignUp</button>
+        <button onClick={this.onSignup} className="buttonSize">SignUp</button>
 
       </form>
     </div>
