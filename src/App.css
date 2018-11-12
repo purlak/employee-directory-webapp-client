@@ -51,14 +51,14 @@
   border: 2px solid grey;
   width: 15%;
   height: 3.5vh;
-  font-size: 20px;  
+  font-size: 10px;  
 }
 
 .buttonSize {
   margin-top: 15px;
  
   background-color: lightgrey;
-  font-size: 20px; 
+  font-size: 15px; 
 }
 
 
