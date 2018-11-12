@@ -77,7 +77,7 @@ render() {
             <div className="displayEmployee">
             <p className="displayName">{searchResult.name} <br/></p>
             <img src={`${No_image_available}`} className="imageSize" />
-            <br/>
+            
             </div>
           )
 
