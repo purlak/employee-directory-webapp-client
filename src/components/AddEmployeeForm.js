@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Employees from '../components/Employees';
+import EmployeeService from '../services/EmployeeService';
 
 class AddEmployeeForm extends Component {
 
@@ -6,54 +8,59 @@ class AddEmployeeForm extends Component {
     super(props)
 
     this.state = {
-      first_name: '',
-      last_name: '',
+      name: '',
       title: '',
       department: '',
-      location: ''
+      location: '',
+      employees:[]
+      
     }
   }
 
+  // componentDidMount() {
+  //   this.props.fetchEmployees(this.state);
+  //   EmployeeService.fetchEmployees().then(employees => this.setState({ employees }));
+  //   EmployeeService.fetchSearchResults().then(searchResults => this.setState({ searchResults }))
+  // }
+
+
   handleOnChange = event => {
-    const {name, value} = event.target;
+    // const {name, value} = event.target;
+    // this.setState({
+    //   [name]: value
+    // })
     this.setState({
-      [name]: value
+      [event.target.name]: event.target.value
     })
   }
 
   handleOnSubmit = event => {
-    event.preventDefault();
-    const employee = this.state;
-    this.props.addEmployee(employee)
-    this.setState({
-      first_name: '',
-      last_name: '',
-      title: '',
-      department: '',
-      location: ''
-    }) 
+    event.preventDefault()
+    const employee = this.state
+    
+    EmployeeService.createEmployee(employee).then(employee => this.setState({
+      employees: this.state.employees.concat(employee)}))
+    // this.setState({
+    //   name: '',
+    //   title: '',
+    //   department: '',
+    //   location: ''
+    // }) 
   }
 
   render() {
+    console.log(this.state)
     return (
+  
+      <fragment>
       <form onSubmit={this.handleOnSubmit}>
-        <label htmlFor="first_name">First Name </label>
+        <label htmlFor="Name">Name </label>
         <input
           type="text"
-          name="first_name"
-          value={this.state.first_name}
+          name="name"
+          value={this.state.name}
           onChange={this.handleOnChange}
-          placeholder="Enter First Name"
-        />
-        <br/>
-
-        <label htmlFor="last_name">Last Name </label>
-        <input
-          type="text"
-          name="last_name"
-          value={this.state.last_name}
-          onChange={this.handleOnChange}
-          placeholder="Enter Last Name"
+          placeholder="Enter Name"
         />
         <br/>
 
@@ -90,6 +97,7 @@ class AddEmployeeForm extends Component {
         <button>Add Employee</button>
 
       </form>
+      </fragment>
 
     )
   }
