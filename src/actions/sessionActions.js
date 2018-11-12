@@ -33,7 +33,7 @@ export const loginUser = (credentials) => {
     })
     .then(response => response.json())
     .then(result => {
-    //console.log(result)
+    console.log(result)
     // {
       // if (result.errors) {
       //   dispatch(userError(result.errors))

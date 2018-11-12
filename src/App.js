@@ -59,7 +59,7 @@ state = {
           
           <h3 className="welcome">Welcome!</h3>
           <Route exact path="/" render={Login} />
-          <Route path="/search" render={Search} />
+          <Route path="`/employees/find`" render={Search} />
           <Search />
            
         </div>  

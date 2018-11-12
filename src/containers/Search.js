@@ -14,7 +14,9 @@ class Search extends Component {
     this.state = {
       employees: [],
       searchTerm: '',
-      searchResults: []
+      searchResults: [],
+      currentPage: 1,
+      resultsPerPage: 3
     };
   }
 
@@ -50,6 +52,7 @@ class Search extends Component {
   }
 
   render () {    
+    console.log(this.state.searchResults)
     if (!this.state.searchTerm) {  
       return (
         <div>
@@ -107,7 +110,10 @@ class Search extends Component {
       <div>
         <Employees employees={this.state.employees}/>
 
-        <SearchEmployees searchResults={this.state.searchResults} />
+        <SearchEmployees 
+        searchResults={this.state.searchResults} 
+        currentPage = {this.state.currentPage} 
+        resultsPerPage = {this.state.resultsPerPage} />
       </div>
     </div>
   )
