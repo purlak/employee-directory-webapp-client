@@ -47,6 +47,7 @@ state = {
         
       <div className="App" style={{
         backgroundImage: `url(${background}`, 
+
          backgroundSize: 'contain',
         backgroundRepeat: 'Norepeat',
       }}>
@@ -60,7 +61,7 @@ state = {
           <Switch>
           
           <Route exact path="/" component={Login} />
-          
+
           <Route path="/findemployee" component={Search} />
           </Switch>
         </div>  
