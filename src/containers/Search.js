@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Employees from '../components/Employees'
 import SearchEmployees from '../components/SearchEmployees'
 import '../SearchEmployees.css';
+import AddEmployeeForm from '../components/AddEmployeeForm'
+
 
 
 const employeeApiUrl = "https://api.themoviedb.org/3"
@@ -59,7 +61,7 @@ class Search extends Component {
     
     if (!this.state.searchTerm) {  
       return (
-
+      
         <div>
         
         <h3 className="welcome">Welcome!</h3>
