@@ -40,7 +40,9 @@ class Search extends Component {
   }
 
   searchDb = async event => {
+
     await this.onSearch(event)
+    event.preventDefault();
     const query = this.state.searchTerm
     
     fetch (`http://localhost:3001/api/search/${query}`)
