@@ -109,4 +109,10 @@ render() {
 }
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    employee: state.session.employee
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { signupUser })(SignUp));
