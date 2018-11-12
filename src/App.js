@@ -61,8 +61,8 @@ state = {
           <Switch>
           
           <Route exact path="/" component={Login} />
-
           <Route path="/findemployee" component={Search} />
+          <Route exact path='/signup' component={Signup} />
           </Switch>
         </div>  
         </div>
