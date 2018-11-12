@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import '../SearchEmployees.css';
+import No_image_available from '../No_image_available.svg';
+
 
 const imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
 
@@ -24,6 +26,7 @@ class SearchEmployees extends Component {
 render() {
   console.log(this.props.searchResults)
   console.log(this.props.employees)
+
  
   // const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage
   // const indexOfFirstResult = indexOfLastResult - this.props.resultsPerPage
@@ -51,20 +54,39 @@ render() {
   if (this.props.searchResults.length === 0) {
     return <h3>Name not found</h3>
 
-  } else {    
+  } 
+
+  else {    
     
     return (
-      
+  
 
     <Fragment>
-      {this.props.searchResults.map((searchResult) => 
+      {this.props.searchResults.map((searchResult) => {
+        if (searchResult.profile_path !== null) {
+          return (
+            <div className="displayEmployee">
+            <p className="displayName">{searchResult.name} <br/></p>
+            <img src={`${imageBaseUrl}/${searchResult.profile_path}`} className="imageSize" />
+            <br/>
+            </div>
+          )
+        }
+        else {
+          return (
+            <div className="displayEmployee">
+            <p className="displayName">{searchResult.name} <br/></p>
+            <img src={`${No_image_available}`} className="imageSize" />
+            <br/>
+            </div>
+          )
 
-        <div className="displayEmployee">
-          <p className="displayName">{searchResult.name} <br/></p>
-          <img src={`${imageBaseUrl}/${searchResult.profile_path}`} className="imageSize" />
-        <br/>
-          
-        </div>
+
+        }
+
+      }
+
+         
       )}
 
     </Fragment>
