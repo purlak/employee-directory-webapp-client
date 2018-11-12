@@ -29,10 +29,10 @@ state = {
 }
 
 componentDidMount() {
-  const token = localStorage.getItem('Token');
-    if (token) {
-      this.props.findUser(token);
-  }
+  // const token = localStorage.getItem('Token');
+  //   if (token) {
+  //     this.props.findUser(token);
+  // }
 
     //this.props.fetchEmployees();
 
@@ -49,9 +49,9 @@ componentDidMount() {
 
   render() {
     const { employee, query, error } = this.props;
-
-    return (
         
+    return (
+       
       <div className="App" style={{
         backgroundImage: `url(${background}`, 
 
@@ -62,14 +62,16 @@ componentDidMount() {
       <Router>
         <div>
         <div className="space"></div>
-        
         <div className="space1">
           
           <Switch>
+
           { employee.id ?
-            <Route path="/findemployee" component={Search} />
-            :
-            <Route exact path="/" component={Login} />  
+          <Route exact path="/findemployee" render={(props) => <Search employee={employee} />} />
+          :
+          <Route exact path="/" component={Login} />  
+
+
           }
           <Route path="/findemployee" component={Search} />
           <Route exact path='/signup' component={Signup} />
