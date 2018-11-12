@@ -22,12 +22,13 @@ class Login extends Component {
   onLogin = (event) => {
     event.preventDefault();
     this.props.loginUser(this.state)
-    this.props.history.push(`/employees/find`);
+    this.props.history.push(`/findemployee`);
   }
 
   render() {
     return (
       <div>
+      <h3 className="welcome">Welcome!</h3>
       <form>
         <input 
         type="text" 
@@ -36,9 +37,8 @@ class Login extends Component {
         onChange={(event) => {this.handleInput(event)}} 
         value={this.state.username} 
         placeholder="Username" 
+        className="login"
         />
-
-        <br/>
 
         <input 
         type="password" 
@@ -47,13 +47,14 @@ class Login extends Component {
         onChange={(event) => {this.handleInput(event)}} 
         value={this.state.password} 
         placeholder="Password" 
+        className="login"
         />
-        <br/>
 
       <button onClick={this.onLogin} className="buttonSize">Login</button>
       </form>
 
       <div><span className="login-section__span">Not registered? </span><a className="login-section__links" href="/signup">Signup</a></div>
+      <br/>
       </div>
         
       
