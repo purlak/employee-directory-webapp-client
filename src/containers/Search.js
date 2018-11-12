@@ -61,7 +61,7 @@ class Search extends Component {
         type="text" 
         onChange={this.onInputSearchTerm} 
         value={this.state.searchTerm} 
-        placeholder="Search" 
+        placeholder="Search Employee Name" 
         className="searchBar"
       />
       <br/>
@@ -80,7 +80,7 @@ class Search extends Component {
         type="text" 
         onChange={this.onInputSearchTerm} 
         value={this.state.searchTerm} 
-        placeholder="Search" 
+        placeholder="Search Employee Name" 
         className="searchBar"
       />
       <br/>
@@ -101,7 +101,7 @@ class Search extends Component {
         type="text" 
         onChange={this.onInputSearchTerm} 
         value={this.state.searchTerm} 
-        placeholder="Search" 
+        placeholder="Search Employee Name" 
         className="searchBar"
       />
       <br/>
