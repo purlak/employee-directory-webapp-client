@@ -60,6 +60,7 @@ state = {
           <Switch>
           
           <Route exact path="/" component={Login} />
+          
           <Route path="/findemployee" component={Search} />
           </Switch>
         </div>  
